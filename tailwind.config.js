@@ -29,6 +29,15 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a'
+},
+        border: '#e2e8f0',
+        background: {
+          DEFAULT: '#ffffff',
+          dark: '#0f172a'
+        },
+        foreground: {
+          DEFAULT: '#1e293b',
+          dark: '#f8fafc'
         },
         success: '#10b981',
         warning: '#f59e0b',
