@@ -37,10 +37,9 @@ const MainFeature = () => {
       const result = await testRecordingService.getAll()
       setRecordings(result || [])
     } catch (err) {
-      setError(err.message)
+setError(err.message)
       toast.error("Failed to load recordings")
     } finally {
-} finally {
       setLoading(false)
     }
   }
