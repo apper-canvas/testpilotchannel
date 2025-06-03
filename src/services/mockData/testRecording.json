@@ -1,0 +1,215 @@
+[
+  {
+    "id": "1",
+    "name": "Login Flow Test",
+    "url": "https://demo-app.testpilot.ai/login",
+    "actions": [
+      {
+        "id": 1,
+        "type": "navigate",
+        "element": "page",
+        "value": "https://demo-app.testpilot.ai/login",
+        "timestamp": "2024-01-15T10:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "type": "click",
+        "element": "input",
+        "value": "email",
+        "timestamp": "2024-01-15T10:00:02.000Z"
+      },
+      {
+        "id": 3,
+        "type": "type",
+        "element": "input",
+        "value": "user@example.com",
+        "timestamp": "2024-01-15T10:00:04.000Z"
+      },
+      {
+        "id": 4,
+        "type": "click",
+        "element": "input",
+        "value": "password",
+        "timestamp": "2024-01-15T10:00:06.000Z"
+      },
+      {
+        "id": 5,
+        "type": "type",
+        "element": "input",
+        "value": "secretpassword",
+        "timestamp": "2024-01-15T10:00:08.000Z"
+      },
+      {
+        "id": 6,
+        "type": "click",
+        "element": "button",
+        "value": "login-submit",
+        "timestamp": "2024-01-15T10:00:10.000Z"
+      }
+    ],
+    "duration": 12,
+    "createdAt": "2024-01-15T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "E-commerce Checkout",
+    "url": "https://shop.example.com/checkout",
+    "actions": [
+      {
+        "id": 1,
+        "type": "click",
+        "element": "button",
+        "value": "add-to-cart",
+        "timestamp": "2024-01-15T11:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "type": "navigate",
+        "element": "page",
+        "value": "/cart",
+        "timestamp": "2024-01-15T11:00:02.000Z"
+      },
+      {
+        "id": 3,
+        "type": "click",
+        "element": "button",
+        "value": "proceed-checkout",
+        "timestamp": "2024-01-15T11:00:04.000Z"
+      },
+      {
+        "id": 4,
+        "type": "type",
+        "element": "input",
+        "value": "shipping-address",
+        "timestamp": "2024-01-15T11:00:06.000Z"
+      },
+      {
+        "id": 5,
+        "type": "click",
+        "element": "dropdown",
+        "value": "payment-method",
+        "timestamp": "2024-01-15T11:00:08.000Z"
+      }
+    ],
+    "duration": 15,
+    "createdAt": "2024-01-15T11:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Search Functionality",
+    "url": "https://search.example.com",
+    "actions": [
+      {
+        "id": 1,
+        "type": "click",
+        "element": "input",
+        "value": "search-box",
+        "timestamp": "2024-01-15T12:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "type": "type",
+        "element": "input",
+        "value": "javascript testing",
+        "timestamp": "2024-01-15T12:00:02.000Z"
+      },
+      {
+        "id": 3,
+        "type": "click",
+        "element": "button",
+        "value": "search-submit",
+        "timestamp": "2024-01-15T12:00:04.000Z"
+      },
+      {
+        "id": 4,
+        "type": "click",
+        "element": "link",
+        "value": "first-result",
+        "timestamp": "2024-01-15T12:00:06.000Z"
+      }
+    ],
+    "duration": 8,
+    "createdAt": "2024-01-15T12:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "name": "Form Validation Test",
+    "url": "https://forms.example.com/contact",
+    "actions": [
+      {
+        "id": 1,
+        "type": "click",
+        "element": "input",
+        "value": "name",
+        "timestamp": "2024-01-15T13:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "type": "type",
+        "element": "input",
+        "value": "John Doe",
+        "timestamp": "2024-01-15T13:00:02.000Z"
+      },
+      {
+        "id": 3,
+        "type": "click",
+        "element": "input",
+        "value": "email",
+        "timestamp": "2024-01-15T13:00:04.000Z"
+      },
+      {
+        "id": 4,
+        "type": "type",
+        "element": "input",
+        "value": "invalid-email",
+        "timestamp": "2024-01-15T13:00:06.000Z"
+      },
+      {
+        "id": 5,
+        "type": "click",
+        "element": "button",
+        "value": "submit",
+        "timestamp": "2024-01-15T13:00:08.000Z"
+      }
+    ],
+    "duration": 10,
+    "createdAt": "2024-01-15T13:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "name": "Navigation Menu Test",
+    "url": "https://nav.example.com",
+    "actions": [
+      {
+        "id": 1,
+        "type": "hover",
+        "element": "link",
+        "value": "products-menu",
+        "timestamp": "2024-01-15T14:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "type": "click",
+        "element": "link",
+        "value": "software-category",
+        "timestamp": "2024-01-15T14:00:02.000Z"
+      },
+      {
+        "id": 3,
+        "type": "scroll",
+        "element": "page",
+        "value": "500px",
+        "timestamp": "2024-01-15T14:00:04.000Z"
+      },
+      {
+        "id": 4,
+        "type": "click",
+        "element": "button",
+        "value": "load-more",
+        "timestamp": "2024-01-15T14:00:06.000Z"
+      }
+    ],
+    "duration": 8,
+    "createdAt": "2024-01-15T14:00:00.000Z"
+  }
+]

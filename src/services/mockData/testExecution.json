@@ -1,0 +1,204 @@
+[
+  {
+    "id": "1",
+    "testCaseId": "1",
+    "startTime": "2024-01-15T15:00:00.000Z",
+    "endTime": "2024-01-15T15:02:30.000Z",
+    "status": "passed",
+    "results": [
+      {
+        "stepId": 1,
+        "status": "passed",
+        "actualResult": "Login page loaded successfully in 1.2s",
+        "screenshot": "step1_screenshot.png",
+        "duration": 1200
+      },
+      {
+        "stepId": 2,
+        "status": "passed",
+        "actualResult": "Email field accepted valid input",
+        "screenshot": "step2_screenshot.png",
+        "duration": 500
+      },
+      {
+        "stepId": 3,
+        "status": "passed",
+        "actualResult": "Password field masked input correctly",
+        "screenshot": "step3_screenshot.png",
+        "duration": 300
+      },
+      {
+        "stepId": 4,
+        "status": "passed",
+        "actualResult": "Successfully redirected to dashboard",
+        "screenshot": "step4_screenshot.png",
+        "duration": 800
+      }
+    ],
+    "totalDuration": 2800,
+    "environment": "staging",
+    "browser": "Chrome 120.0.0"
+  },
+  {
+    "id": "2",
+    "testCaseId": "2",
+    "startTime": "2024-01-15T15:05:00.000Z",
+    "endTime": "2024-01-15T15:07:45.000Z",
+    "status": "failed",
+    "results": [
+      {
+        "stepId": 1,
+        "status": "passed",
+        "actualResult": "Product page loaded successfully",
+        "screenshot": "step1_screenshot.png",
+        "duration": 1100
+      },
+      {
+        "stepId": 2,
+        "status": "passed",
+        "actualResult": "Item added to cart successfully",
+        "screenshot": "step2_screenshot.png",
+        "duration": 600
+      },
+      {
+        "stepId": 3,
+        "status": "passed",
+        "actualResult": "Cart page displayed items correctly",
+        "screenshot": "step3_screenshot.png",
+        "duration": 900
+      },
+      {
+        "stepId": 4,
+        "status": "failed",
+        "actualResult": "Quantity update failed - total not recalculated",
+        "screenshot": "step4_screenshot.png",
+        "duration": 400,
+        "error": "Total price calculation error: expected $39.98, got $19.99"
+      }
+    ],
+    "totalDuration": 3000,
+    "environment": "staging",
+    "browser": "Firefox 121.0.0"
+  },
+  {
+    "id": "3",
+    "testCaseId": "3",
+    "startTime": "2024-01-15T15:10:00.000Z",
+    "endTime": "2024-01-15T15:12:15.000Z",
+    "status": "passed",
+    "results": [
+      {
+        "stepId": 1,
+        "status": "passed",
+        "actualResult": "Search suggestions appeared as expected",
+        "screenshot": "step1_screenshot.png",
+        "duration": 800
+      },
+      {
+        "stepId": 2,
+        "status": "passed",
+        "actualResult": "Search results displayed correctly",
+        "screenshot": "step2_screenshot.png",
+        "duration": 1200
+      },
+      {
+        "stepId": 3,
+        "status": "passed",
+        "actualResult": "Category filter applied successfully",
+        "screenshot": "step3_screenshot.png",
+        "duration": 700
+      },
+      {
+        "stepId": 4,
+        "status": "passed",
+        "actualResult": "Results sorted by price correctly",
+        "screenshot": "step4_screenshot.png",
+        "duration": 500
+      }
+    ],
+    "totalDuration": 3200,
+    "environment": "production",
+    "browser": "Safari 17.1.0"
+  },
+  {
+    "id": "4",
+    "testCaseId": "4",
+    "startTime": "2024-01-15T15:15:00.000Z",
+    "endTime": "2024-01-15T15:16:30.000Z",
+    "status": "passed",
+    "results": [
+      {
+        "stepId": 1,
+        "status": "passed",
+        "actualResult": "Contact form loaded without issues",
+        "screenshot": "step1_screenshot.png",
+        "duration": 600
+      },
+      {
+        "stepId": 2,
+        "status": "passed",
+        "actualResult": "Email validation error displayed correctly",
+        "screenshot": "step2_screenshot.png",
+        "duration": 300
+      },
+      {
+        "stepId": 3,
+        "status": "passed",
+        "actualResult": "Phone format error shown as expected",
+        "screenshot": "step3_screenshot.png",
+        "duration": 250
+      },
+      {
+        "stepId": 4,
+        "status": "passed",
+        "actualResult": "Form submission prevented with validation errors",
+        "screenshot": "step4_screenshot.png",
+        "duration": 200
+      }
+    ],
+    "totalDuration": 1350,
+    "environment": "staging",
+    "browser": "Edge 120.0.0"
+  },
+  {
+    "id": "5",
+    "testCaseId": "5",
+    "startTime": "2024-01-15T15:20:00.000Z",
+    "endTime": "2024-01-15T15:22:45.000Z",
+    "status": "warning",
+    "results": [
+      {
+        "stepId": 1,
+        "status": "passed",
+        "actualResult": "Layout adapted to mobile view",
+        "screenshot": "step1_screenshot.png",
+        "duration": 1000
+      },
+      {
+        "stepId": 2,
+        "status": "passed",
+        "actualResult": "Mobile navigation expanded correctly",
+        "screenshot": "step2_screenshot.png",
+        "duration": 400
+      },
+      {
+        "stepId": 3,
+        "status": "warning",
+        "actualResult": "Tablet layout loaded but with minor spacing issues",
+        "screenshot": "step3_screenshot.png",
+        "duration": 800,
+        "warning": "Minor CSS layout inconsistency detected on tablet view"
+      },
+      {
+        "stepId": 4,
+        "status": "passed",
+        "actualResult": "Touch interactions working properly",
+        "screenshot": "step4_screenshot.png",
+        "duration": 600
+      }
+    ],
+    "totalDuration": 2800,
+    "environment": "staging",
+    "browser": "Chrome Mobile 120.0.0"
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "id": "1",
+    "title": "User Authentication Flow",
+    "description": "Validates complete user login process including error handling and success scenarios",
+    "steps": [
+      {
+        "id": 1,
+        "action": "navigate",
+        "element": "login page",
+        "value": "/login",
+        "expected": "Login page should load successfully"
+      },
+      {
+        "id": 2,
+        "action": "enter",
+        "element": "email field",
+        "value": "valid email",
+        "expected": "Email field should accept input"
+      },
+      {
+        "id": 3,
+        "action": "enter",
+        "element": "password field",
+        "value": "valid password",
+        "expected": "Password field should mask input"
+      },
+      {
+        "id": 4,
+        "action": "click",
+        "element": "login button",
+        "value": "submit",
+        "expected": "Should redirect to dashboard on success"
+      }
+    ],
+    "expectedResults": [
+      "User should be successfully authenticated",
+      "Redirect to dashboard page",
+      "Display welcome message",
+      "Session should be established"
+    ],
+    "tags": ["authentication", "login", "security", "functional"],
+    "status": "active",
+    "createdAt": "2024-01-15T09:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "Shopping Cart Management",
+    "description": "Tests adding, removing, and updating items in shopping cart with quantity validation",
+    "steps": [
+      {
+        "id": 1,
+        "action": "navigate",
+        "element": "product page",
+        "value": "/products/123",
+        "expected": "Product details should display"
+      },
+      {
+        "id": 2,
+        "action": "click",
+        "element": "add to cart button",
+        "value": "submit",
+        "expected": "Item should be added to cart"
+      },
+      {
+        "id": 3,
+        "action": "navigate",
+        "element": "cart page",
+        "value": "/cart",
+        "expected": "Cart page should show added items"
+      },
+      {
+        "id": 4,
+        "action": "update",
+        "element": "quantity field",
+        "value": "2",
+        "expected": "Quantity should update and total recalculated"
+      }
+    ],
+    "expectedResults": [
+      "Items correctly added to cart",
+      "Quantity updates work properly",
+      "Total price calculations are accurate",
+      "Cart persists across sessions"
+    ],
+    "tags": ["e-commerce", "cart", "functional", "integration"],
+    "status": "active",
+    "createdAt": "2024-01-15T10:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "Search and Filter Functionality",
+    "description": "Validates search capabilities with filters, sorting, and pagination",
+    "steps": [
+      {
+        "id": 1,
+        "action": "enter",
+        "element": "search box",
+        "value": "test query",
+        "expected": "Search suggestions should appear"
+      },
+      {
+        "id": 2,
+        "action": "click",
+        "element": "search button",
+        "value": "submit",
+        "expected": "Search results should display"
+      },
+      {
+        "id": 3,
+        "action": "select",
+        "element": "category filter",
+        "value": "electronics",
+        "expected": "Results should filter by category"
+      },
+      {
+        "id": 4,
+        "action": "click",
+        "element": "sort dropdown",
+        "value": "price low to high",
+        "expected": "Results should sort by price ascending"
+      }
+    ],
+    "expectedResults": [
+      "Search returns relevant results",
+      "Filters work correctly",
+      "Sorting functions properly",
+      "Pagination works for large result sets"
+    ],
+    "tags": ["search", "filter", "sorting", "ui"],
+    "status": "draft",
+    "createdAt": "2024-01-15T11:15:00.000Z"
+  },
+  {
+    "id": "4",
+    "title": "Form Validation and Error Handling",
+    "description": "Tests comprehensive form validation including client-side and server-side error handling",
+    "steps": [
+      {
+        "id": 1,
+        "action": "navigate",
+        "element": "contact form",
+        "value": "/contact",
+        "expected": "Contact form should load"
+      },
+      {
+        "id": 2,
+        "action": "enter",
+        "element": "email field",
+        "value": "invalid-email",
+        "expected": "Should show validation error"
+      },
+      {
+        "id": 3,
+        "action": "enter",
+        "element": "phone field",
+        "value": "abc123",
+        "expected": "Should show phone format error"
+      },
+      {
+        "id": 4,
+        "action": "click",
+        "element": "submit button",
+        "value": "submit",
+        "expected": "Should prevent submission with errors"
+      }
+    ],
+    "expectedResults": [
+      "Form validation triggers appropriately",
+      "Error messages are clear and helpful",
+      "Invalid submission is prevented",
+      "Valid submission processes successfully"
+    ],
+    "tags": ["validation", "forms", "error-handling", "ux"],
+    "status": "active",
+    "createdAt": "2024-01-15T12:45:00.000Z"
+  },
+  {
+    "id": "5",
+    "title": "Responsive Design Testing",
+    "description": "Validates UI behavior and functionality across different screen sizes and devices",
+    "steps": [
+      {
+        "id": 1,
+        "action": "resize",
+        "element": "browser window",
+        "value": "mobile size",
+        "expected": "Layout should adapt to mobile view"
+      },
+      {
+        "id": 2,
+        "action": "click",
+        "element": "hamburger menu",
+        "value": "open",
+        "expected": "Mobile navigation should expand"
+      },
+      {
+        "id": 3,
+        "action": "resize",
+        "element": "browser window",
+        "value": "tablet size",
+        "expected": "Layout should adapt to tablet view"
+      },
+      {
+        "id": 4,
+        "action": "test",
+        "element": "touch interactions",
+        "value": "swipe gestures",
+        "expected": "Touch controls should work properly"
+      }
+    ],
+    "expectedResults": [
+      "Layout adapts properly to screen sizes",
+      "Navigation works on all devices",
+      "Content remains accessible",
+      "Performance is acceptable on mobile"
+    ],
+    "tags": ["responsive", "mobile", "ui", "cross-platform"],
+    "status": "draft",
+    "createdAt": "2024-01-15T13:20:00.000Z"
+  },
+  {
+    "id": "6",
+    "title": "API Integration Testing",
+    "description": "Tests frontend integration with backend APIs including error scenarios and data validation",
+    "steps": [
+      {
+        "id": 1,
+        "action": "trigger",
+        "element": "api call",
+        "value": "load user data",
+        "expected": "API should return user information"
+      },
+      {
+        "id": 2,
+        "action": "verify",
+        "element": "response data",
+        "value": "data structure",
+        "expected": "Response should match expected schema"
+      },
+      {
+        "id": 3,
+        "action": "simulate",
+        "element": "network error",
+        "value": "timeout",
+        "expected": "Should handle error gracefully"
+      },
+      {
+        "id": 4,
+        "action": "check",
+        "element": "error message",
+        "value": "user notification",
+        "expected": "User should see appropriate error message"
+      }
+    ],
+    "expectedResults": [
+      "API calls execute successfully",
+      "Data is properly validated",
+      "Error scenarios are handled gracefully",
+      "Loading states are displayed appropriately"
+    ],
+    "tags": ["api", "integration", "error-handling", "backend"],
+    "status": "active",
+    "createdAt": "2024-01-15T14:00:00.000Z"
+  }
+]
