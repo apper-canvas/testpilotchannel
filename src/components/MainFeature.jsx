@@ -15,8 +15,9 @@ const MainFeature = () => {
     name: '',
     url: '',
     actions: []
-  })
+})
   const [selectedRecording, setSelectedRecording] = useState(null)
+  const [expandedRecording, setExpandedRecording] = useState(null)
   const [showTestCaseModal, setShowTestCaseModal] = useState(false)
   const [newTestCase, setNewTestCase] = useState({
     title: '',
@@ -39,13 +40,17 @@ const MainFeature = () => {
       setError(err.message)
       toast.error("Failed to load recordings")
     } finally {
+} finally {
       setLoading(false)
     }
   }
 
+  const toggleRecordingDetails = (recordingId) => {
+    setExpandedRecording(expandedRecording === recordingId ? null : recordingId)
+  }
+
   const startRecording = () => {
     if (!recordingData.name || !recordingData.url) {
-      toast.error("Please enter recording name and URL")
       return
     }
     setIsRecording(true)
@@ -307,29 +312,103 @@ const MainFeature = () => {
                 <div className="text-center py-8">
                   <ApperIcon name="FolderOpen" className="w-12 h-12 text-surface-400 mx-auto mb-3" />
                   <p className="text-surface-600 dark:text-surface-400">No recordings yet. Start your first recording above!</p>
-                </div>
+</div>
               ) : (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   {recordings.slice(0, 4).map((recording) => (
-                    <div key={recording.id} className="border border-surface-200 dark:border-surface-600 rounded-lg p-4 hover:border-primary transition-colors">
-                      <div className="flex items-start justify-between mb-3">
-                        <h5 className="font-medium text-surface-900 dark:text-white">{recording.name}</h5>
-                        <span className="text-xs text-surface-500 bg-surface-100 dark:bg-surface-700 px-2 py-1 rounded">
-                          {recording.actions?.length || 0} actions
-                        </span>
+                    <div key={recording.id} className="border border-surface-200 dark:border-surface-600 rounded-lg overflow-hidden hover:border-primary transition-colors">
+                      <div 
+                        className="p-4 cursor-pointer"
+                        onClick={() => toggleRecordingDetails(recording.id)}
+                      >
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex items-center space-x-3">
+                            <h5 className="font-medium text-surface-900 dark:text-white">{recording.name}</h5>
+                            <ApperIcon 
+                              name={expandedRecording === recording.id ? "ChevronUp" : "ChevronDown"} 
+                              className="w-4 h-4 text-surface-500 transition-transform duration-200" 
+                            />
+                          </div>
+                          <span className="text-xs text-surface-500 bg-surface-100 dark:bg-surface-700 px-2 py-1 rounded">
+                            {recording.actions?.length || 0} actions
+                          </span>
+                        </div>
+                        <p className="text-sm text-surface-600 dark:text-surface-400 mb-3 truncate">{recording.url}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-surface-500">
+                            {new Date(recording.createdAt).toLocaleDateString()}
+                          </span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              generateTestCase(recording)
+                            }}
+                            className="text-xs bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full hover:shadow-glow transition-all duration-200"
+                          >
+                            Generate Test
+                          </button>
+                        </div>
                       </div>
-                      <p className="text-sm text-surface-600 dark:text-surface-400 mb-3 truncate">{recording.url}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-surface-500">
-                          {new Date(recording.createdAt).toLocaleDateString()}
-                        </span>
-                        <button
-                          onClick={() => generateTestCase(recording)}
-                          className="text-xs bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full hover:shadow-glow transition-all duration-200"
-                        >
-                          Generate Test
-                        </button>
-                      </div>
+                      
+                      <AnimatePresence>
+                        {expandedRecording === recording.id && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="border-t border-surface-200 dark:border-surface-600 bg-surface-50 dark:bg-surface-700"
+                          >
+                            <div className="p-4">
+                              <h6 className="font-medium text-surface-900 dark:text-white mb-3 flex items-center space-x-2">
+                                <ApperIcon name="List" className="w-4 h-4 text-primary" />
+                                <span>Recorded Actions</span>
+                              </h6>
+                              
+                              {recording.actions && recording.actions.length > 0 ? (
+                                <div className="space-y-2 max-h-64 overflow-y-auto scrollbar-hide">
+                                  {recording.actions.map((action, index) => (
+                                    <motion.div
+                                      key={action.id || index}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ delay: index * 0.05 }}
+                                      className="flex items-center space-x-3 p-3 bg-white dark:bg-surface-800 rounded-lg border border-surface-200 dark:border-surface-600"
+                                    >
+                                      <div className="flex-shrink-0 w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
+                                        <span className="text-xs font-medium text-primary">{index + 1}</span>
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center space-x-2 mb-1">
+                                          <span className="font-medium text-sm text-surface-900 dark:text-white capitalize">
+                                            {action.type}
+                                          </span>
+                                          <span className="text-xs text-surface-500 bg-surface-100 dark:bg-surface-700 px-2 py-1 rounded">
+                                            {action.element}
+                                          </span>
+                                        </div>
+                                        {action.value && (
+                                          <p className="text-sm text-surface-600 dark:text-surface-400 truncate">
+                                            Value: {action.value}
+                                          </p>
+                                        )}
+                                      </div>
+                                      <div className="flex-shrink-0 text-xs text-surface-500">
+                                        {new Date(action.timestamp).toLocaleTimeString()}
+                                      </div>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              ) : (
+                                <div className="text-center py-4">
+                                  <ApperIcon name="AlertCircle" className="w-8 h-8 text-surface-400 mx-auto mb-2" />
+                                  <p className="text-sm text-surface-600 dark:text-surface-400">No actions recorded</p>
+                                </div>
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ))}
                 </div>
